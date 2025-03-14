@@ -8,14 +8,14 @@ import os
 class SpectralData(Dataset):
     def __init__(
         self,
-        directory_path: str = "data",
+        directory_path: str = None,
         domain_list: List[str] = None,
         hsr_columns: List[str] = None,
         trait_list: List[str] = None,
     ):
         super().__init__()
         self.directory_path = directory_path
-        self.domain_list = domain_list if domain_list else ["UNL_Maize", "UNL_Camelina", "UNL_Sorghum", "UNL_Soybean"]
+        self.domain_list = domain_list if domain_list else []
         self.hsr_columns = hsr_columns if hsr_columns else [str(wavelength) for wavelength in range(350,2501)]
         self.trait_list = trait_list if trait_list else []
         self.frame = None
