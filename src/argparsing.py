@@ -1,9 +1,9 @@
 import argparse
 from pydantic import BaseModel
-from typing import Type
+from typing import Literal, Type
 
 from models.base_model import BaseExperimentArgs
-from src.registry import models
+from registry import models
 
 def str_to_bool(value):
     if value.lower() in ["true", "t"]:
@@ -27,7 +27,7 @@ def str_to_list(value):
 def _parser_from_model(parser: argparse.ArgumentParser, base_args: Type[BaseModel]):
     fields = base_args.model_fields
     
-    for name, field in fields.items:
+    for name, field in fields.items():
         def get_type_args():
             is_optional = getattr(field.annotation, "__name__", None) == "Optional"
 

@@ -175,6 +175,10 @@ cython_debug/
 
 # Custom
 data
+wandb
+slurm*
+.conda
+
 
 # VSC
 settings.json
