@@ -39,6 +39,10 @@ if __name__ == "__main__":
         )
         
         # evaluate
+        y_pred = model.predict(
+            input_test = data.input_validation
+        )
+        
         r2, r = model.evaluate(
             input_test = data.input_validation,
             target_test = data.target_validation
@@ -49,7 +53,12 @@ if __name__ == "__main__":
             "r_validation" : np.mean(r),
         }
         
+        data = [[y_real.item(), y_pred.item()] for (y_real, y_pred) in zip(np.array(data.target_validation), np.array(y_pred))]
+        table = wandb.Table(data = data, columns=["real y", "predicted y"])
+        
+        wandb.log({"real vs predicted y": wandb.plot.scatter(table, "real y", "predicted y", title="real vs predicted y")})
         wandb.log(log_data)
+        wandb.finish()
         
         
     
