@@ -1,5 +1,6 @@
+from math import inf
 import numpy as np
-from sklearn.base import r2_score
+from sklearn.metrics import r2_score
 import torch
 import wandb
 
@@ -25,23 +26,21 @@ def train_epoch(model, dataloader, optimizer, loss_fn):
         error = loss_fn(logits, targets.float())
         losses.append(error.item())
         
+        
         # 3. Backpropagation
         error.backward()
         
         # 4. Parameter update
         optimizer.step()
         
-        # 5. Accurary monitoring
+        # 5. Accuracy monitoring
         logits_np = logits.detach().cpu().numpy()
         targets_np = targets.detach().cpu().numpy() 
         
         r2 = r2_score(targets_np, logits_np) 
         r2_scores.append(r2)
-
-    wandb.log({
-        "r2_train": np.mean(r2_scores),
-        "train_loss": np.mean(losses)
-    })
+    
+    return np.mean(r2_scores), np.mean(losses)
 
 def test_epoch(model, dataloader, loss_fn):
     # Set pytorch model in trainings mode
@@ -61,18 +60,43 @@ def test_epoch(model, dataloader, loss_fn):
             error = loss_fn(logits, targets.float())
             losses.append(error.item())
             
-            # 3. Accurary monitoring
+            # 3. Accuracy monitoring
             logits_np = logits.detach().cpu().numpy()
             targets_np = targets.detach().cpu().numpy() 
             
             r2 = r2_score(targets_np, logits_np) 
             r2_scores.append(r2)
-
-    wandb.log({
-        "r2_train": np.mean(r2_scores),
-        "train_loss": np.mean(losses)
-    })
+        
+        return np.mean(r2_scores), np.mean(losses)
+    
+def train_with_early_stopping(model, train_loader, validation_loader, optimizer, loss_fn, patience = 10, epochs = 100):
+    patience_counter = 0
+    best_loss_val = -np.inf
+    best_model_weights = None
+    
+    for epoch in range(epochs):
+        # train
+        r2_score, loss = train_epoch(model, train_loader, optimizer, loss_fn)
+    
+        # validation
+        r2_score_val, loss_val = test_epoch(model, validation_loader, loss_fn)
+        
+        if best_loss_val > loss_val:
+            best_loss_val = loss_val
+            patience_counter = 0
+            best_model_weights = model.state_dict()
+        else:
+            patience_counter += 1
+        
+        if patience_counter >= patience:
+            wandb.log({"early_stopping_epoch": epoch})
+            break
+        
+        model.load_state_dict(best_model_weights)
+        return r2_score, loss, r2_score_val, loss_val, model
             
-    #TODO: Normalization in the dataset class
-    #TODO: Early stopping 
+            
+            
+            
+    
             

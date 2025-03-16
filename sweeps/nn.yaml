@@ -1,0 +1,20 @@
+program: src/sweep.py
+method: grid
+name: nn_sweep
+entity: marleen-streicher
+project: ida_nitrogen_prediction
+run_cap: 500
+command:
+  - ${env}
+  - ${interpreter}
+  - ${program}
+  - ${args}
+  - --model=NN
+  - --use_wandb=true
+metric:
+  name: r2_validation
+  goal: maximize
+parameters:
+  learning_rate: [0.0001, 0.001, 0.01, 0.1]
+  weight_decay: [0.0001, 0.001, 0.01, 0.1]
+  layer_number: [1, 2, 3, 4, 5]

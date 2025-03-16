@@ -1,3 +1,4 @@
+from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from torch.utils.data import Dataset
 from typing import List, Tuple
@@ -35,6 +36,7 @@ class SpectralData(Dataset):
             raise FileNotFoundError
         
         self.frame, self.data, self.input, self.target = self._create_frame()
+        self._normalize_data()
         self.input_other, self.input_train, self.input_validation, self.input_test, self.target_other, self.target_train, self.target_validation, self.target_test = self._create_train_test_split()
         
     def _create_frame(self) -> Tuple[pd.DataFrame, pd.DataFrame, np.array, np.array]:
@@ -54,6 +56,13 @@ class SpectralData(Dataset):
         data = frame.values
         
         return frame, data, input_data, target_data
+    
+    def _normalize_data(self):
+        self.input_scaler = StandardScaler()
+        self.target_scaler = StandardScaler()
+        
+        self.input = self.input_scaler.fit_transform(self.input)
+        self.target = self.target_scaler.fit_transform(self.target)
     
     def _create_train_test_split(self):
         input_other, input_test, target_other, target_test = train_test_split(self.input, self.target, test_size=0.15, random_state=42, shuffle=True) 

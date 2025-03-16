@@ -20,7 +20,7 @@ if __name__ == "__main__":
     if config.use_wandb:
         wandb.login(key=os.environ["WB_KEY"], relogin=True)
         
-    experiment_name = f"sweep_{str(config.model).lower()}"
+    experiment_name = f"ml_sweep_{str(config.model).lower()}"
     wandb.init(
         project = "ida_nitrogen_prediction",
         entity = "marleen-streicher",

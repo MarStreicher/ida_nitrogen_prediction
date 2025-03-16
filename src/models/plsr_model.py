@@ -11,9 +11,6 @@ class PLSRModel(BaseExperimentModel):
         self.n_components = config.n_components
         
     def train(self, input_train, target_train):
-        input_train = self.scaler_input.fit_transform(input_train)
-        target_train = self.scaler_target.fit_transform(target_train)
-        
         self.model = PLSRegression(
             n_components=self.n_components,
             scale=False)

@@ -17,18 +17,10 @@ class BaseExperimentArgs(BaseModel):
 
 class BaseExperimentModel():
     def __init__(self):
-        self.scaler_input = StandardScaler() 
-        self.scaler_target = StandardScaler()
-        pass
-    
-    @abstractmethod
-    def train(self, input_train, target_train):
         pass
     
     def predict(self, input_test):
-        input_test_norm = self.scaler_input.transform(input_test)
-        y_pred_norm = self.model.predict(input_test_norm)
-        return self.scaler_target.inverse_transform(y_pred_norm)
+        return self.model.predict(input_test)
     
     def evaluate(self, input_test, target_test):
         y_pred = self.predict(input_test)
