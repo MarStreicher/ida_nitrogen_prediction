@@ -1,9 +1,14 @@
 from math import inf
+import torch.nn as nn
 import numpy as np
 from sklearn.metrics import r2_score
 import torch
 import wandb
 
+def init_weights(m):
+    if isinstance(m, nn.Linear):
+        torch.nn.init.xavier_uniform_(m.weight)
+        m.bias.data.fill_(0.01)
 
 def train_epoch(model, dataloader, optimizer, loss_fn):
     # Set pytorch model in trainings mode
@@ -71,8 +76,7 @@ def test_epoch(model, dataloader, loss_fn):
     
 def train_with_early_stopping(model, train_loader, validation_loader, optimizer, loss_fn, patience = 10, epochs = 100):
     patience_counter = 0
-    best_loss_val = -np.inf
-    best_model_weights = None
+    best_loss_val = np.inf
     
     for epoch in range(epochs):
         # train
@@ -84,7 +88,6 @@ def train_with_early_stopping(model, train_loader, validation_loader, optimizer,
         if best_loss_val > loss_val:
             best_loss_val = loss_val
             patience_counter = 0
-            best_model_weights = model.state_dict()
         else:
             patience_counter += 1
         
@@ -92,11 +95,66 @@ def train_with_early_stopping(model, train_loader, validation_loader, optimizer,
             wandb.log({"early_stopping_epoch": epoch})
             break
         
-        model.load_state_dict(best_model_weights)
-        return r2_score, loss, r2_score_val, loss_val, model
+        wandb.log({
+            "r2_train": r2_score,
+            "train_loss": loss,
+            "r2_validation": r2_score_val,
+            "validation_loss": loss_val,
+        })
+        
+    return model
+            
+def train_test_with_early_stopping(model, train_loader, validation_loader, test_loader, optimizer, loss_fn, patience = 10, epochs = 100):
+    patience_counter = 0
+    best_loss_val = -np.inf
+    best_model_state = None
+    
+    for epoch in range(epochs):
+        # train
+        r2_score, loss = train_epoch(model, train_loader, optimizer, loss_fn)
+    
+        # validation
+        r2_score_val, loss_val = test_epoch(model, validation_loader, loss_fn)
+        
+        # test
+        r2_score_test, loss_test = test_epoch(model, test_loader, loss_fn)
+        
+        if best_loss_val > loss_val:
+            best_loss_val = loss_val
+            patience_counter = 0
+            best_model_state = model.state_dict() 
+            torch.save(best_model_state, "best_model.pth") 
+        else:
+            patience_counter += 1
+        
+        if patience_counter >= patience:
+            wandb.log({"early_stopping_epoch": epoch})
+            break
+        
+        wandb.log({
+            "r2_train": r2_score,
+            "train_loss": loss,
+            "r2_validation": r2_score_val,
+            "validation_loss": loss_val,
+            "r2_test": r2_score_test,
+            "test_loss": loss_test,
+        })
+
+    return model
             
             
-            
-            
+def test_best_model(model, test_loader, optimizer, loss_fn):
+    model.load_state_dict(torch.load("best_model.pth"))
+    model.eval()
+
+    r2_score_test, loss_test = test_epoch(model, test_loader, loss_fn)
+    
+    wandb.log({
+        "r2_test": r2_score_test,
+        "test_loss": loss_test,
+    })
+    
+    return r2_score_test
+           
     
             

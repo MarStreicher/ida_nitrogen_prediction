@@ -3,6 +3,7 @@ import torch.nn as nn
 from torch.nn import functional as F
 
 from models.base_model import BaseExperimentArgs, BaseExperimentModel
+from torch_functions import init_weights
 
 class SimpleNNModelArgs(BaseExperimentArgs):
     input_dim: int = 2151
@@ -20,6 +21,9 @@ class SimpleNNModel(BaseExperimentModel, nn.Module):
         ])
         self.output_layer = nn.Linear(self.config.input_dim, self.config.output_dim)
     
+        # Custom weight initialization
+        self.apply(init_weights)
+        
     def forward(self, input):
         for layer in self.layers:
             input = F.relu(layer(input))

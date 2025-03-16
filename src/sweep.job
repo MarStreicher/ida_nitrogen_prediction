@@ -29,4 +29,4 @@ export WANDB_MODE=online
 
 # wandb sweep sweeps/file.yaml
 # Start the WandB agent with internet access via the proxy
-wandb agent marleen-streicher/ida_nitrogen_prediction/jsjn8543
+wandb agent marleen-streicher/ida_nitrogen_prediction/fg1q2kry

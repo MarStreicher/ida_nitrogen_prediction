@@ -1,0 +1,6 @@
+- Check nn sweep
+- Perform dl cv and check it
+- Implement cv for plsr
+- Run cv for plsr
+- Bottleneck structure to improve simple nn (new model)
+- CNN model from paper

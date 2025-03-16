@@ -13,14 +13,26 @@
             "args": "${command:pickArgs}"
         },
         {
-            "name": "Python: Debug sweep.py",
+            "name": "Python: Debug ml_sweep.py",
             "type": "debugpy",
             "request": "launch",
-            "program": "/work/mstreicher/ida_nitrogen_prediction/src/sweep.py",
+            "program": "/work/mstreicher/ida_nitrogen_prediction/src/ml_sweep.py",
             "console": "integratedTerminal",
             "args": [
                 "--model", "PLSR",
                 "--n_components", "10",
+                "--use_wandb", "True",
+                ]
+        },
+        {
+            "name": "Python: Debug dl_sweep.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "/work/mstreicher/ida_nitrogen_prediction/src/dl_sweep.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--model", "NN",
+                "--layer_number", "3",
                 "--use_wandb", "True",
                 ]
         }

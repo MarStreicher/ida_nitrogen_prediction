@@ -9,7 +9,7 @@ import wandb
 from argparsing import get_model_from_args
 from dataset import SpectralData
 
-from torch_functions import train_epoch, test_epoch, train_with_early_stopping
+from torch_functions import train_with_early_stopping
 
 if __name__ == "__main__":
     load_dotenv()
@@ -51,15 +51,8 @@ if __name__ == "__main__":
         
         optimizer = Adam(model.parameters(), lr = config.learning_rate, weight_decay = config.weight_decay) 
         loss_fn = nn.MSELoss()
-        for epoch in range(config.epochs):
-            r2_score, loss, r2_score_val, loss_val, _ = train_with_early_stopping(model, train_loader, validation_loader, optimizer, loss_fn, epochs = config.epochs)
-            
-            wandb.log({
-                "r2_train": r2_score,
-                "train_loss": loss,
-                "r2_validation": r2_score_val,
-                "validation_loss": loss_val,
-            })
+
+        _ = train_with_early_stopping(model, train_loader, validation_loader, optimizer, loss_fn, epochs = config.epochs)
     
         wandb.finish()
         

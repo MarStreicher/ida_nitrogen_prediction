@@ -1,4 +1,4 @@
-program: src/sweep.py
+program: src/ml_sweep.py
 method: grid
 name: plsr_sweep
 entity: marleen-streicher
