@@ -6,6 +6,8 @@ import pandas as pd
 import numpy as np
 import os
 
+from traitlets import Bool
+
 class SpectralData(Dataset):
     def __init__(
         self,
@@ -13,6 +15,7 @@ class SpectralData(Dataset):
         domain_list: List[str] = None,
         hsr_columns: List[str] = None,
         trait_list: List[str] = None,
+        normalization: Bool = True
     ):
         super().__init__()
         self.directory_path = directory_path
@@ -36,7 +39,8 @@ class SpectralData(Dataset):
             raise FileNotFoundError
         
         self.frame, self.data, self.input, self.target = self._create_frame()
-        self._normalize_data()
+        if normalization:
+            self._normalize_data()
         self.input_other, self.input_train, self.input_validation, self.input_test, self.target_other, self.target_train, self.target_validation, self.target_test = self._create_train_test_split()
         
     def _create_frame(self) -> Tuple[pd.DataFrame, pd.DataFrame, np.array, np.array]:

@@ -88,6 +88,8 @@ def train_with_early_stopping(model, train_loader, validation_loader, optimizer,
         if best_loss_val > loss_val:
             best_loss_val = loss_val
             patience_counter = 0
+            best_r2_score_val = r2_score_val
+            best_r2_score = r2_score
         else:
             patience_counter += 1
         
@@ -96,9 +98,9 @@ def train_with_early_stopping(model, train_loader, validation_loader, optimizer,
             break
         
         wandb.log({
-            "r2_train": r2_score,
+            "r2_train": best_r2_score,
             "train_loss": loss,
-            "r2_validation": r2_score_val,
+            "r2_validation": best_r2_score_val,
             "validation_loss": loss_val,
         })
         
@@ -123,7 +125,7 @@ def train_test_with_early_stopping(model, train_loader, validation_loader, test_
             best_loss_val = loss_val
             patience_counter = 0
             best_model_state = model.state_dict() 
-            torch.save(best_model_state, "best_model.pth") 
+            torch.save(best_model_state, "best_model.pth")
         else:
             patience_counter += 1
         

@@ -14,6 +14,7 @@ class BaseExperimentArgs(BaseModel):
     directory_path: str = "data"
     domain_list: list[str] = ["UNL_Maize", "UNL_Camelina", "UNL_Sorghum", "UNL_Soybean"]
     trait_list: list[str] = ["N"]
+    normalised: bool = True
 
 class BaseExperimentModel():
     def __init__(self):

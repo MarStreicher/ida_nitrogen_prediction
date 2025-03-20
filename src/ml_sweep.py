@@ -13,7 +13,8 @@ if __name__ == "__main__":
     data = SpectralData(
         domain_list = config.domain_list,
         trait_list = config.trait_list,
-        directory_path = config.directory_path
+        directory_path = config.directory_path,
+        normalization = config.normalised,
     )
     
     # wandb

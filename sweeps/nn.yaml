@@ -1,9 +1,9 @@
 program: src/dl_sweep.py
-method: grid
+method: bayes
 name: nn_sweep
 entity: marleen-streicher
 project: ida_nitrogen_prediction
-run_cap: 500
+run_cap: 100
 command:
   - ${env}
   - ${interpreter}
@@ -11,13 +11,14 @@ command:
   - ${args}
   - --model=NN
   - --use_wandb=true
+  - --normalised=true
 metric:
   name: r2_validation
   goal: maximize
 parameters:
   weight_decay:
-    values: [0.0001, 0.001, 0.01, 0.1]
+    values: [0.0001, 0.001]
   layer_number:
-    values: [1, 2, 3, 4, 5]
+    values: [2, 3, 4]
   learning_rate:
-    values: [0.0001, 0.001, 0.01, 0.1]
+    values: [0.0001, 0.001]
