@@ -5,21 +5,28 @@ from torch.nn import functional as F
 from models.base_model import BaseExperimentArgs, BaseExperimentModel
 from torch_functions import init_weights
 
-class SimpleNNModelArgs(BaseExperimentArgs):
+class BottleneckNNModelArgs(BaseExperimentArgs):
     input_dim: int = 2151
     output_dim: int = 1
     layer_number: int = 1
     
-class SimpleNNModel(BaseExperimentModel, nn.Module):
-    def __init__(self, config: SimpleNNModelArgs):
+class BottleneckNNModel(BaseExperimentModel, nn.Module):
+    def __init__(self, config: BottleneckNNModelArgs):
         nn.Module.__init__(self)
         BaseExperimentModel.__init__(self)
         self.name = "NN"
         self.config = config
-        self.layers = nn.ModuleList([
-            nn.Linear(self.config.input_dim, self.config.input_dim) for _ in range(self.config.layer_number)
-        ])
-        self.output_layer = nn.Linear(self.config.input_dim, self.config.output_dim)
+        
+        self.layers = nn.ModuleList()
+        current_dim = self.config.input_dim
+        
+        # Create bottleneck structure
+        for _ in range(self.config.layer_number):
+            next_dim = int(current_dim /2)
+            self.layers.append(nn.Linear(current_dim, next_dim))
+            current_dim = next_dim
+        
+        self.output_layer = nn.Linear(current_dim, self.config.output_dim)
     
         # Custom weight initialization
         self.apply(init_weights)
@@ -30,4 +37,4 @@ class SimpleNNModel(BaseExperimentModel, nn.Module):
         return self.output_layer(input)
         
     def get_args_model():
-        return SimpleNNModelArgs
+        return BottleneckNNModelArgs

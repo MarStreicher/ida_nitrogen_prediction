@@ -27,6 +27,5 @@ export WANDB_MODE=online
 
 # No need for login in wandb - wandb will automatically use .netrc
 
-# wandb sweep sweeps/file.yaml
-# Start the WandB agent with internet access via the proxy
-wandb agent marleen-streicher/ida_nitrogen_prediction/xe8e28u9
+#python src/dl_cv.py --model=NN --use_wandb=True --layer_number=4 --learning_rate=0.0001 --weight_deacy=0.001
+python src/dl_cv.py --model=CNN --use_wandb=False --layer_number=4 --learning_rate=0.0001 --weight_deacy=0.001

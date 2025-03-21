@@ -1,0 +1,24 @@
+program: src/dl_sweep.py
+method: bayes
+name: bn_sweep
+entity: marleen-streicher
+project: ida_nitrogen_prediction
+run_cap: 100
+command:
+  - ${env}
+  - ${interpreter}
+  - ${program}
+  - ${args}
+  - --model=BN
+  - --use_wandb=true
+  - --normalised=true
+metric:
+  name: r2_validation
+  goal: maximize
+parameters:
+  weight_decay:
+    values: [0.01, 0.0001, 0.001]
+  layer_number:
+    values: [1, 2, 3, 4, 5, 10]
+  learning_rate:
+    values: [0.01, 0.0001, 0.001]

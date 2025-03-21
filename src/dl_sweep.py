@@ -1,7 +1,7 @@
 import os
 import torch
 from torch.utils.data import DataLoader, TensorDataset
-from torch.optim import Adam
+import torch.optim as optim
 import torch.nn as nn
 from dotenv import load_dotenv
 import numpy as np
@@ -49,7 +49,7 @@ if __name__ == "__main__":
         )
         validation_loader = DataLoader(validation_dataset, batch_size = 32, shuffle = True)
         
-        optimizer = Adam(model.parameters(), lr = config.learning_rate, weight_decay = config.weight_decay) 
+        optimizer = optim.SGD(model.parameters(), lr = config.learning_rate, weight_decay = config.weight_decay) 
         loss_fn = nn.MSELoss()
 
         _ = train_with_early_stopping(model, train_loader, validation_loader, optimizer, loss_fn, epochs = config.epochs)
