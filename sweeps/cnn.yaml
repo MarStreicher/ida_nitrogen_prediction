@@ -1,6 +1,6 @@
 program: src/dl_sweep.py
 method: bayes
-name: cnn_sweep
+name: cnn_sweep_2
 entity: marleen-streicher
 project: ida_nitrogen_prediction
 run_cap: 200
@@ -19,8 +19,12 @@ parameters:
   weight_decay:
     values: [0.01, 0.0001, 0.001]
   layer_number:
-    values: [1, 2, 3, 4, 5, 10]
+    values: [1, 2, 3]
   learning_rate:
     values: [0.01, 0.0001, 0.001]
   kernel_size:
-    values: [3, 4, 5, 6]
+    values: [1, 2, 3, 4, 5, 6]
+  config.out_channels_conv2:
+    values: [8, 16, 32]
+  config.out_channels_conv1:
+    values: [8, 16, 32, 64]

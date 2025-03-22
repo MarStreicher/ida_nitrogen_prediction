@@ -9,6 +9,7 @@ class BottleneckNNModelArgs(BaseExperimentArgs):
     input_dim: int = 2151
     output_dim: int = 1
     layer_number: int = 1
+    drop_out: bool = False
     
 class BottleneckNNModel(BaseExperimentModel, nn.Module):
     def __init__(self, config: BottleneckNNModelArgs):
@@ -26,6 +27,9 @@ class BottleneckNNModel(BaseExperimentModel, nn.Module):
             self.layers.append(nn.Linear(current_dim, next_dim))
             current_dim = next_dim
         
+        if config.drop_out:
+            self.drop_out = nn.Dropout(p = 0.5)
+        
         self.output_layer = nn.Linear(current_dim, self.config.output_dim)
     
         # Custom weight initialization
@@ -34,6 +38,8 @@ class BottleneckNNModel(BaseExperimentModel, nn.Module):
     def forward(self, input):
         for layer in self.layers:
             input = F.relu(layer(input))
+        if hasattr(self, 'drop_out'):
+            input = self.drop_out(input)
         return self.output_layer(input)
         
     def get_args_model():

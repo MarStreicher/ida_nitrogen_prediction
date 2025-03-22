@@ -10,7 +10,7 @@ def init_weights(m):
         torch.nn.init.xavier_uniform_(m.weight)
         m.bias.data.fill_(0.01)
 
-def train_epoch(model, dataloader, optimizer, loss_fn):
+def train_epoch(model, dataloader, optimizer, loss_fn, device):
     # Set pytorch model in trainings mode
     model.train()
     losses = []
@@ -21,7 +21,7 @@ def train_epoch(model, dataloader, optimizer, loss_fn):
         # Clear the gradients of all optimized tensors
         optimizer.zero_grad()
         
-        input_features = batch[0]
+        input_features = batch[0].to(device)
         targets = batch[1]
         
         # 1. Forward pass
@@ -50,7 +50,7 @@ def train_epoch(model, dataloader, optimizer, loss_fn):
     
     return np.mean(r2_scores), np.mean(mse_scores), np.mean(losses)
 
-def test_epoch(model, dataloader, loss_fn):
+def test_epoch(model, dataloader, loss_fn, device):
     # Set pytorch model in trainings mode
     model.eval()
     
@@ -59,7 +59,7 @@ def test_epoch(model, dataloader, loss_fn):
     mse_scores = []
     with torch.no_grad():
         for batch in dataloader:
-            input_features = batch[0]
+            input_features = batch[0].to(device)
             targets = batch[1]
             
             # 1. Forward pass
@@ -81,16 +81,16 @@ def test_epoch(model, dataloader, loss_fn):
         
         return np.mean(r2_scores), np.mean(mse_scores), np.mean(losses)
     
-def train_with_early_stopping(model, train_loader, validation_loader, optimizer, loss_fn, patience = 10, epochs = 100):
+def train_with_early_stopping(model, train_loader, validation_loader, optimizer, loss_fn, device, patience = 10, epochs = 100):
     patience_counter = 0
     best_loss_val = np.inf
     
     for epoch in range(epochs):
         # train
-        r2_score, mse_score, loss = train_epoch(model, train_loader, optimizer, loss_fn)
+        r2_score, mse_score, loss = train_epoch(model, train_loader, optimizer, loss_fn, device)
     
         # validation
-        r2_score_val, mse_score_val, loss_val = test_epoch(model, validation_loader, loss_fn)
+        r2_score_val, mse_score_val, loss_val = test_epoch(model, validation_loader, loss_fn, device)
         
         if best_loss_val > loss_val:
             best_loss_val = loss_val
@@ -119,11 +119,11 @@ def train_with_early_stopping(model, train_loader, validation_loader, optimizer,
         
     return model
             
-def test_best_model(model, test_loader, loss_fn):
+def test_best_model(model, test_loader, loss_fn, device):
     model.load_state_dict(torch.load(f"trained_models/{str(model.name).lower()}_model.pth", weights_only=True))
     model.eval()
 
-    r2_score_test, mse_score_test, loss_test = test_epoch(model, test_loader, loss_fn)
+    r2_score_test, mse_score_test, loss_test = test_epoch(model, test_loader, loss_fn, device)
     
     wandb.log({
         "r2_test": r2_score_test,

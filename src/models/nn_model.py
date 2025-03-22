@@ -28,6 +28,6 @@ class SimpleNNModel(BaseExperimentModel, nn.Module):
         for layer in self.layers:
             input = F.relu(layer(input))
         return self.output_layer(input)
-        
+           
     def get_args_model():
         return SimpleNNModelArgs

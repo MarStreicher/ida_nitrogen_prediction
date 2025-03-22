@@ -6,8 +6,6 @@ import pandas as pd
 import numpy as np
 import os
 
-from traitlets import Bool
-
 class SpectralData(Dataset):
     def __init__(
         self,
@@ -15,7 +13,7 @@ class SpectralData(Dataset):
         domain_list: List[str] = None,
         hsr_columns: List[str] = None,
         trait_list: List[str] = None,
-        normalization: Bool = True
+        normalization: bool = True
     ):
         super().__init__()
         self.directory_path = directory_path
@@ -66,7 +64,9 @@ class SpectralData(Dataset):
         self.target_scaler = StandardScaler()
         
         self.input = self.input_scaler.fit_transform(self.input)
-        self.target = self.target_scaler.fit_transform(self.target)
+        
+        if self.trait_list:
+            self.target = self.target_scaler.fit_transform(self.target)
     
     def _create_train_test_split(self):
         input_other, input_test, target_other, target_test = train_test_split(self.input, self.target, test_size=0.15, random_state=42, shuffle=True) 

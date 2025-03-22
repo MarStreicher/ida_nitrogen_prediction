@@ -1,19 +1,20 @@
 #!/bin/zsh
 
-#SBATCH --partition=all              # Partition name
+#SBATCH --partition=gpu              # Partition name
 #SBATCH --nodes=1                    # Number of nodes
 #SBATCH --ntasks=1                   # Number of tasks
 #SBATCH --cpus-per-task=4            # Number of CPU cores
-#SBATCH --mem=64G                    # Memory allocation
+#SBATCH --mem=128G                   # Memory allocation
 #SBATCH --time=0-20:00:00            # Max runtime (hh:mm:ss)
 #SBATCH --output=slurm-%j.out        # Output log file (stdout + stderr)
 #SBATCH --mail-type=END              # Send an email when the job finishes
+#SBATCH --gpus=1                     # Request GPU
 
 # Load modules and activate Conda environment
 cd /work/mstreicher/ida_nitrogen_prediction
 module load lang/Anaconda3/2024.02-1
 eval "$(conda shell.zsh hook)"
-conda activate env_ida_nitrogen_prediction
+conda activate env_python_gpu
 
 # Set up the proxy for internet access on the compute node
 export http_proxy=http://proxy2.uni-potsdam.de:3128
@@ -29,4 +30,4 @@ export WANDB_MODE=online
 
 # wandb sweep sweeps/file.yaml
 # Start the WandB agent with internet access via the proxy
-wandb agent marleen-streicher/ida_nitrogen_prediction/xe8e28u9
+wandb agent marleen-streicher/ida_nitrogen_prediction/vm438uuk

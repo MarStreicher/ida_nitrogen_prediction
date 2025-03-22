@@ -3,7 +3,7 @@ method: bayes
 name: nn_sweep
 entity: marleen-streicher
 project: ida_nitrogen_prediction
-run_cap: 100
+run_cap: 200
 command:
   - ${env}
   - ${interpreter}
