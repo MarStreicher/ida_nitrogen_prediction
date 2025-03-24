@@ -22,7 +22,7 @@ def train_epoch(model, dataloader, optimizer, loss_fn, device):
         optimizer.zero_grad()
         
         input_features = batch[0].to(device)
-        targets = batch[1]
+        targets = batch[1].to(device)
         
         # 1. Forward pass
         logits = model(input_features)
@@ -60,7 +60,7 @@ def test_epoch(model, dataloader, loss_fn, device):
     with torch.no_grad():
         for batch in dataloader:
             input_features = batch[0].to(device)
-            targets = batch[1]
+            targets = batch[1].to(device)
             
             # 1. Forward pass
             logits = model(input_features)
@@ -81,7 +81,7 @@ def test_epoch(model, dataloader, loss_fn, device):
         
         return np.mean(r2_scores), np.mean(mse_scores), np.mean(losses)
     
-def train_with_early_stopping(model, train_loader, validation_loader, optimizer, loss_fn, device, patience = 10, epochs = 100):
+def train_with_early_stopping(model, train_loader, validation_loader, optimizer, loss_fn, device, fold = 0, patience = 10, epochs = 100):
     patience_counter = 0
     best_loss_val = np.inf
     
@@ -100,7 +100,7 @@ def train_with_early_stopping(model, train_loader, validation_loader, optimizer,
             best_mse_score_val = mse_score_val
             best_mse_score = mse_score
             best_model_state = model.state_dict() 
-            torch.save(best_model_state, f"trained_models/{str(model.name).lower()}_model.pth")
+            torch.save(best_model_state, f"trained_models/{str(model.name).lower()}/{str(fold)}_model.pth")
         else:
             patience_counter += 1
         
@@ -119,8 +119,12 @@ def train_with_early_stopping(model, train_loader, validation_loader, optimizer,
         
     return model
             
-def test_best_model(model, test_loader, loss_fn, device):
-    model.load_state_dict(torch.load(f"trained_models/{str(model.name).lower()}_model.pth", weights_only=True))
+def test_best_model(model, test_loader, loss_fn, device, fold = 0):
+    model.load_state_dict(torch.load(f"trained_models/{str(model.name).lower()}/{str(fold)}_model.pth"))
+                        #map_location=torch.device(device)), 
+                          #strict=False
+
+    print(f"After loading: {model}")
     model.eval()
 
     r2_score_test, mse_score_test, loss_test = test_epoch(model, test_loader, loss_fn, device)

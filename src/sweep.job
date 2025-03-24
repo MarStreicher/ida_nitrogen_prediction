@@ -4,7 +4,7 @@
 #SBATCH --nodes=1                    # Number of nodes
 #SBATCH --ntasks=1                   # Number of tasks
 #SBATCH --cpus-per-task=4            # Number of CPU cores
-#SBATCH --mem=128G                   # Memory allocation
+#SBATCH --mem=8G                   # Memory allocation
 #SBATCH --time=0-20:00:00            # Max runtime (hh:mm:ss)
 #SBATCH --output=slurm-%j.out        # Output log file (stdout + stderr)
 #SBATCH --mail-type=END              # Send an email when the job finishes
@@ -30,4 +30,4 @@ export WANDB_MODE=online
 
 # wandb sweep sweeps/file.yaml
 # Start the WandB agent with internet access via the proxy
-wandb agent marleen-streicher/ida_nitrogen_prediction/vm438uuk
+wandb agent marleen-streicher/ida_nitrogen_prediction/snibju1g

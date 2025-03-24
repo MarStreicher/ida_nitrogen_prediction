@@ -1,6 +1,6 @@
 program: src/dl_sweep.py
 method: bayes
-name: cnn_sweep_2
+name: cnn_sweep_pooling_maize_sorghum
 entity: marleen-streicher
 project: ida_nitrogen_prediction
 run_cap: 200
@@ -12,6 +12,9 @@ command:
   - --model=CNN
   - --use_wandb=true
   - --normalised=true
+  - --pooling=False
+  - "--domain_list"
+  - '["UNL_Maize", "UNL_Sorghum"]'
 metric:
   name: r2_validation
   goal: maximize
@@ -19,11 +22,11 @@ parameters:
   weight_decay:
     values: [0.01, 0.0001, 0.001]
   layer_number:
-    values: [1, 2, 3]
+    values: [1, 2, 3, 4, 5]
   learning_rate:
     values: [0.01, 0.0001, 0.001]
   kernel_size:
-    values: [1, 2, 3, 4, 5, 6]
+    values: [3]
   config.out_channels_conv2:
     values: [8, 16, 32]
   config.out_channels_conv1:

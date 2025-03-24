@@ -14,8 +14,7 @@ class CNNModelArgs(BaseExperimentArgs):
     stride: int = 2
     out_channels_conv1: int = 16
     out_channels_conv2: int = 32
-    
-    
+    pooling: bool = True
     
 class CNNModel(BaseExperimentModel, nn.Module):
     def __init__(self, config: CNNModelArgs):
@@ -44,7 +43,18 @@ class CNNModel(BaseExperimentModel, nn.Module):
         self.layers = nn.ModuleList()
         output_size_conv1 = self._get_output_size(config.input_dim, config.kernel_size, config.padding, config.stride)
         output_size_conv2 = self._get_output_size(output_size_conv1, config.kernel_size, config.padding, config.stride)
-        current_dim = config.out_channels_conv2 * output_size_conv2
+        
+        if self.config.pooling:
+            output_size_pool = self._get_output_size(output_size_conv2, config.kernel_size, config.padding, config.stride)
+            current_dim = config.out_channels_conv2 * output_size_pool
+        else:
+            current_dim = config.out_channels_conv2 * output_size_conv2
+        
+        if self.config.pooling:
+            self.pool = nn.MaxPool1d(
+                kernel_size = self.config.kernel_size,
+                stride = self.config.stride,
+                )
         
         # Create bottleneck structure
         for _ in range(self.config.layer_number):
@@ -62,6 +72,9 @@ class CNNModel(BaseExperimentModel, nn.Module):
         
         input = F.relu(self.conv1(input))
         input = F.relu(self.conv2(input))
+        
+        if self.config.pooling:
+            input = self.pool(input)
         
         # Flatten the output:
         input = input.view(input.size(0), -1)

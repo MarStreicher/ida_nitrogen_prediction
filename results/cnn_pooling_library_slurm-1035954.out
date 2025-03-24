@@ -1,0 +1,366 @@
+wandb: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
+wandb: Appending key for api.wandb.ai to your netrc file: /home/mstreicher/.netrc
+wandb: Currently logged in as: mstreicher (marleen-streicher) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.19.8
+wandb: Run data is saved locally in /work/mstreicher/ida_nitrogen_prediction/wandb/run-20250324_090902-cpvv8vmz
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run dl_fold_1_cnn
+wandb: ⭐️ View project at https://wandb.ai/marleen-streicher/ida_nitrogen_prediction
+wandb: 🚀 View run at https://wandb.ai/marleen-streicher/ida_nitrogen_prediction/runs/cpvv8vmz
+/work/mstreicher/ida_nitrogen_prediction/src/torch_functions.py:123: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model.load_state_dict(torch.load(f"trained_models/{str(model.name).lower()}/{str(fold)}_model.pth"))
+wandb: uploading history steps 79-84, summary, console lines 11-34
+wandb:                                                                                
+wandb: 
+wandb: Run history:
+wandb: early_stopping_epoch ▁
+wandb:             mse_test ▁
+wandb:            mse_train █▄▃▃▂▂▂▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:       mse_validation █▅▄▄▄▃▃▃▃▃▃▃▃▃▂▂▂▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:              r2_test ▁
+wandb:             r2_train ▁▂▃▃▃▃▃▄▅▄▄▄▄▄▆▆▆▆▆▆▇▇▇▇▇▇▇▇▇▇▇▇▇▇██████
+wandb:        r2_validation ▁▃▄▅▅▅▆▆▇▇▆▆▆▇▇▇▇▇▇▇█▇▇▇▇▇▇▇▇███████████
+wandb:            test_loss ▁
+wandb:           train_loss █▇▆▅▅▄▄▄▄▄▃▃▃▃▃▃▃▃▂▂▃▂▂▂▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁
+wandb:      validation_loss ▇▅▆▆▄█▃▃▃▃▃▂▂▄▂▃▃▂▂▂▃▃▂▂▃▂▂▅▄▂▁▁▁▁▁▂▂▁▁▄
+wandb: 
+wandb: Run summary:
+wandb: early_stopping_epoch 82
+wandb:             mse_test 0.28979
+wandb:            mse_train 0.24115
+wandb:       mse_validation 0.24473
+wandb:              r2_test 0.70159
+wandb:             r2_train 0.73992
+wandb:        r2_validation 0.73605
+wandb:            test_loss 0.28979
+wandb:           train_loss 0.23472
+wandb:      validation_loss 0.31802
+wandb: 
+wandb: 🚀 View run dl_fold_1_cnn at: https://wandb.ai/marleen-streicher/ida_nitrogen_prediction/runs/cpvv8vmz
+wandb: ⭐️ View project at: https://wandb.ai/marleen-streicher/ida_nitrogen_prediction
+wandb: Synced 8 W&B file(s), 1 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20250324_090902-cpvv8vmz/logs
+wandb: Appending key for api.wandb.ai to your netrc file: /home/mstreicher/.netrc
+wandb: Tracking run with wandb version 0.19.8
+wandb: Run data is saved locally in /work/mstreicher/ida_nitrogen_prediction/wandb/run-20250324_091024-u22hdgbb
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run dl_fold_2_cnn
+wandb: ⭐️ View project at https://wandb.ai/marleen-streicher/ida_nitrogen_prediction
+wandb: 🚀 View run at https://wandb.ai/marleen-streicher/ida_nitrogen_prediction/runs/u22hdgbb
+/work/mstreicher/ida_nitrogen_prediction/src/torch_functions.py:123: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model.load_state_dict(torch.load(f"trained_models/{str(model.name).lower()}/{str(fold)}_model.pth"))
+wandb:                                                                                
+wandb: 
+wandb: Run history:
+wandb: early_stopping_epoch ▁
+wandb:             mse_test ▁
+wandb:            mse_train █▅▄▃▃▃▃▃▂▂▂▂▂▂▂▂▂▂▂▂▁▁▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:       mse_validation █▇▆▅▅▄▄▃▃▃▃▃▃▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:              r2_test ▁
+wandb:             r2_train ▁▆▆▆▇▇▇▇▇▇▇█████████████████████████████
+wandb:        r2_validation ▁▃▄▅▅▅▅▅▆▆▆▆▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇████████
+wandb:            test_loss ▁
+wandb:           train_loss █▃▃▃▂▂▂▂▂▂▂▂▂▂▂▂▂▂▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:      validation_loss █▄▃▃▂▃▂▄▂▂▂▂▂▂▁▂▂▂▂▂▂▁▂▂▁▁▁▂▁▁▁▁▁▁▂▁▂▂▁▁
+wandb: 
+wandb: Run summary:
+wandb: early_stopping_epoch 56
+wandb:             mse_test 0.29922
+wandb:            mse_train 0.2683
+wandb:       mse_validation 0.28712
+wandb:              r2_test 0.68756
+wandb:             r2_train 0.70115
+wandb:        r2_validation 0.72797
+wandb:            test_loss 0.29922
+wandb:           train_loss 0.25666
+wandb:      validation_loss 0.28785
+wandb: 
+wandb: 🚀 View run dl_fold_2_cnn at: https://wandb.ai/marleen-streicher/ida_nitrogen_prediction/runs/u22hdgbb
+wandb: ⭐️ View project at: https://wandb.ai/marleen-streicher/ida_nitrogen_prediction
+wandb: Synced 8 W&B file(s), 1 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20250324_091024-u22hdgbb/logs
+wandb: Appending key for api.wandb.ai to your netrc file: /home/mstreicher/.netrc
+wandb: Tracking run with wandb version 0.19.8
+wandb: Run data is saved locally in /work/mstreicher/ida_nitrogen_prediction/wandb/run-20250324_091123-4ie57hyh
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run dl_fold_3_cnn
+wandb: ⭐️ View project at https://wandb.ai/marleen-streicher/ida_nitrogen_prediction
+wandb: 🚀 View run at https://wandb.ai/marleen-streicher/ida_nitrogen_prediction/runs/4ie57hyh
+/work/mstreicher/ida_nitrogen_prediction/src/torch_functions.py:123: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model.load_state_dict(torch.load(f"trained_models/{str(model.name).lower()}/{str(fold)}_model.pth"))
+wandb:                                                                                
+wandb: 
+wandb: Run history:
+wandb: early_stopping_epoch ▁
+wandb:             mse_test ▁
+wandb:            mse_train █▅▄▃▃▂▂▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:       mse_validation █▆▅▄▃▂▂▂▂▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:              r2_test ▁
+wandb:             r2_train ▁▅▆▆▆▇▇▇▇▇▇▇▇▇▇▇████████████████████████
+wandb:        r2_validation ▁▃▃▅▅▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇███████████████
+wandb:            test_loss ▁
+wandb:           train_loss █▅▄▃▃▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:      validation_loss █▆▅▄▃▂▃▂▂▂▂▂▂▂▂▃▂▂▂▂▂▁▁▂▁▁▁▁▃▃▁▁▂▁▁▁▂▁▁▂
+wandb: 
+wandb: Run summary:
+wandb: early_stopping_epoch 50
+wandb:             mse_test 0.29121
+wandb:            mse_train 0.25043
+wandb:       mse_validation 0.27737
+wandb:              r2_test 0.7064
+wandb:             r2_train 0.72928
+wandb:        r2_validation 0.70944
+wandb:            test_loss 0.29121
+wandb:           train_loss 0.23766
+wandb:      validation_loss 0.31093
+wandb: 
+wandb: 🚀 View run dl_fold_3_cnn at: https://wandb.ai/marleen-streicher/ida_nitrogen_prediction/runs/4ie57hyh
+wandb: ⭐️ View project at: https://wandb.ai/marleen-streicher/ida_nitrogen_prediction
+wandb: Synced 8 W&B file(s), 1 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20250324_091123-4ie57hyh/logs
+wandb: Appending key for api.wandb.ai to your netrc file: /home/mstreicher/.netrc
+wandb: Tracking run with wandb version 0.19.8
+wandb: Run data is saved locally in /work/mstreicher/ida_nitrogen_prediction/wandb/run-20250324_091216-5elrhkq4
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run dl_fold_4_cnn
+wandb: ⭐️ View project at https://wandb.ai/marleen-streicher/ida_nitrogen_prediction
+wandb: 🚀 View run at https://wandb.ai/marleen-streicher/ida_nitrogen_prediction/runs/5elrhkq4
+/work/mstreicher/ida_nitrogen_prediction/src/torch_functions.py:123: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model.load_state_dict(torch.load(f"trained_models/{str(model.name).lower()}/{str(fold)}_model.pth"))
+wandb:                                                                                
+wandb: 
+wandb: Run history:
+wandb: early_stopping_epoch ▁
+wandb:             mse_test ▁
+wandb:            mse_train █▄▃▃▂▂▂▂▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:       mse_validation █▄▃▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:              r2_test ▁
+wandb:             r2_train ▁▅▆▆▆▆▆▆▇▇▇▇▇▇▇▇▇███████████████████████
+wandb:        r2_validation ▁▅▆▆▆▆▆▆▇▇▇▇▇▇▇▇▇██▇████████████████████
+wandb:            test_loss ▁
+wandb:           train_loss █▅▃▃▃▂▂▂▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:      validation_loss █▄▃▂▂▃▃▂▂▂▁▂▂▂▂▂▁▁▃▁▁▂▁▂▁▁▁▁▁▃▂▁▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb: early_stopping_epoch 45
+wandb:             mse_test 0.28624
+wandb:            mse_train 0.25142
+wandb:       mse_validation 0.27308
+wandb:              r2_test 0.70831
+wandb:             r2_train 0.73403
+wandb:        r2_validation 0.68117
+wandb:            test_loss 0.28624
+wandb:           train_loss 0.2405
+wandb:      validation_loss 0.28611
+wandb: 
+wandb: 🚀 View run dl_fold_4_cnn at: https://wandb.ai/marleen-streicher/ida_nitrogen_prediction/runs/5elrhkq4
+wandb: ⭐️ View project at: https://wandb.ai/marleen-streicher/ida_nitrogen_prediction
+wandb: Synced 8 W&B file(s), 1 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20250324_091216-5elrhkq4/logs
+wandb: Appending key for api.wandb.ai to your netrc file: /home/mstreicher/.netrc
+wandb: Tracking run with wandb version 0.19.8
+wandb: Run data is saved locally in /work/mstreicher/ida_nitrogen_prediction/wandb/run-20250324_091303-m1bgm776
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run dl_fold_5_cnn
+wandb: ⭐️ View project at https://wandb.ai/marleen-streicher/ida_nitrogen_prediction
+wandb: 🚀 View run at https://wandb.ai/marleen-streicher/ida_nitrogen_prediction/runs/m1bgm776
+/work/mstreicher/ida_nitrogen_prediction/src/torch_functions.py:123: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model.load_state_dict(torch.load(f"trained_models/{str(model.name).lower()}/{str(fold)}_model.pth"))
+wandb:                                                                                
+wandb: 
+wandb: Run history:
+wandb: early_stopping_epoch ▁
+wandb:             mse_test ▁
+wandb:            mse_train █▄▃▃▃▂▂▂▂▂▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:       mse_validation █▅▄▄▄▃▂▂▂▂▂▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:              r2_test ▁
+wandb:             r2_train ▁▅▆▆▆▆▆▇▇▇▇▇▇▇▇▇▇▇▇█████████████████████
+wandb:        r2_validation ▁▄▅▆▆▆▆▅▇▇▆▆▆▆▆▆▆▆▇▇▇███████████████████
+wandb:            test_loss ▁
+wandb:           train_loss █▆▅▅▄▃▃▃▃▃▃▃▂▂▂▃▂▃▂▂▂▂▂▂▂▂▂▂▁▂▁▂▁▁▁▁▁▁▁▁
+wandb:      validation_loss █▅▄▄▄▄▃▂▃▂▃▃▄▂▅▂▂▄▄▂▁▁▂▃▂▂▁▂▂▂▄▂▁▁▁▁▁▁▂▂
+wandb: 
+wandb: Run summary:
+wandb: early_stopping_epoch 56
+wandb:             mse_test 0.28727
+wandb:            mse_train 0.25405
+wandb:       mse_validation 0.29714
+wandb:              r2_test 0.71423
+wandb:             r2_train 0.72801
+wandb:        r2_validation 0.66222
+wandb:            test_loss 0.28727
+wandb:           train_loss 0.24294
+wandb:      validation_loss 0.33336
+wandb: 
+wandb: 🚀 View run dl_fold_5_cnn at: https://wandb.ai/marleen-streicher/ida_nitrogen_prediction/runs/m1bgm776
+wandb: ⭐️ View project at: https://wandb.ai/marleen-streicher/ida_nitrogen_prediction
+wandb: Synced 8 W&B file(s), 1 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20250324_091303-m1bgm776/logs
+Before training: CNNModel(
+  (conv1): Conv1d(1, 16, kernel_size=(3,), stride=(2,))
+  (conv2): Conv1d(16, 32, kernel_size=(3,), stride=(2,))
+  (layers): ModuleList(
+    (0): Linear(in_features=17184, out_features=8592, bias=True)
+    (1): Linear(in_features=8592, out_features=4296, bias=True)
+    (2): Linear(in_features=4296, out_features=2148, bias=True)
+    (3): Linear(in_features=2148, out_features=1074, bias=True)
+  )
+  (output_layer): Linear(in_features=1074, out_features=1, bias=True)
+)
+After training: CNNModel(
+  (conv1): Conv1d(1, 16, kernel_size=(3,), stride=(2,))
+  (conv2): Conv1d(16, 32, kernel_size=(3,), stride=(2,))
+  (layers): ModuleList(
+    (0): Linear(in_features=17184, out_features=8592, bias=True)
+    (1): Linear(in_features=8592, out_features=4296, bias=True)
+    (2): Linear(in_features=4296, out_features=2148, bias=True)
+    (3): Linear(in_features=2148, out_features=1074, bias=True)
+  )
+  (output_layer): Linear(in_features=1074, out_features=1, bias=True)
+)
+After loading: CNNModel(
+  (conv1): Conv1d(1, 16, kernel_size=(3,), stride=(2,))
+  (conv2): Conv1d(16, 32, kernel_size=(3,), stride=(2,))
+  (layers): ModuleList(
+    (0): Linear(in_features=17184, out_features=8592, bias=True)
+    (1): Linear(in_features=8592, out_features=4296, bias=True)
+    (2): Linear(in_features=4296, out_features=2148, bias=True)
+    (3): Linear(in_features=2148, out_features=1074, bias=True)
+  )
+  (output_layer): Linear(in_features=1074, out_features=1, bias=True)
+)
+Before training: CNNModel(
+  (conv1): Conv1d(1, 16, kernel_size=(3,), stride=(2,))
+  (conv2): Conv1d(16, 32, kernel_size=(3,), stride=(2,))
+  (layers): ModuleList(
+    (0): Linear(in_features=17184, out_features=8592, bias=True)
+    (1): Linear(in_features=8592, out_features=4296, bias=True)
+    (2): Linear(in_features=4296, out_features=2148, bias=True)
+    (3): Linear(in_features=2148, out_features=1074, bias=True)
+  )
+  (output_layer): Linear(in_features=1074, out_features=1, bias=True)
+)
+After training: CNNModel(
+  (conv1): Conv1d(1, 16, kernel_size=(3,), stride=(2,))
+  (conv2): Conv1d(16, 32, kernel_size=(3,), stride=(2,))
+  (layers): ModuleList(
+    (0): Linear(in_features=17184, out_features=8592, bias=True)
+    (1): Linear(in_features=8592, out_features=4296, bias=True)
+    (2): Linear(in_features=4296, out_features=2148, bias=True)
+    (3): Linear(in_features=2148, out_features=1074, bias=True)
+  )
+  (output_layer): Linear(in_features=1074, out_features=1, bias=True)
+)
+After loading: CNNModel(
+  (conv1): Conv1d(1, 16, kernel_size=(3,), stride=(2,))
+  (conv2): Conv1d(16, 32, kernel_size=(3,), stride=(2,))
+  (layers): ModuleList(
+    (0): Linear(in_features=17184, out_features=8592, bias=True)
+    (1): Linear(in_features=8592, out_features=4296, bias=True)
+    (2): Linear(in_features=4296, out_features=2148, bias=True)
+    (3): Linear(in_features=2148, out_features=1074, bias=True)
+  )
+  (output_layer): Linear(in_features=1074, out_features=1, bias=True)
+)
+Before training: CNNModel(
+  (conv1): Conv1d(1, 16, kernel_size=(3,), stride=(2,))
+  (conv2): Conv1d(16, 32, kernel_size=(3,), stride=(2,))
+  (layers): ModuleList(
+    (0): Linear(in_features=17184, out_features=8592, bias=True)
+    (1): Linear(in_features=8592, out_features=4296, bias=True)
+    (2): Linear(in_features=4296, out_features=2148, bias=True)
+    (3): Linear(in_features=2148, out_features=1074, bias=True)
+  )
+  (output_layer): Linear(in_features=1074, out_features=1, bias=True)
+)
+After training: CNNModel(
+  (conv1): Conv1d(1, 16, kernel_size=(3,), stride=(2,))
+  (conv2): Conv1d(16, 32, kernel_size=(3,), stride=(2,))
+  (layers): ModuleList(
+    (0): Linear(in_features=17184, out_features=8592, bias=True)
+    (1): Linear(in_features=8592, out_features=4296, bias=True)
+    (2): Linear(in_features=4296, out_features=2148, bias=True)
+    (3): Linear(in_features=2148, out_features=1074, bias=True)
+  )
+  (output_layer): Linear(in_features=1074, out_features=1, bias=True)
+)
+After loading: CNNModel(
+  (conv1): Conv1d(1, 16, kernel_size=(3,), stride=(2,))
+  (conv2): Conv1d(16, 32, kernel_size=(3,), stride=(2,))
+  (layers): ModuleList(
+    (0): Linear(in_features=17184, out_features=8592, bias=True)
+    (1): Linear(in_features=8592, out_features=4296, bias=True)
+    (2): Linear(in_features=4296, out_features=2148, bias=True)
+    (3): Linear(in_features=2148, out_features=1074, bias=True)
+  )
+  (output_layer): Linear(in_features=1074, out_features=1, bias=True)
+)
+Before training: CNNModel(
+  (conv1): Conv1d(1, 16, kernel_size=(3,), stride=(2,))
+  (conv2): Conv1d(16, 32, kernel_size=(3,), stride=(2,))
+  (layers): ModuleList(
+    (0): Linear(in_features=17184, out_features=8592, bias=True)
+    (1): Linear(in_features=8592, out_features=4296, bias=True)
+    (2): Linear(in_features=4296, out_features=2148, bias=True)
+    (3): Linear(in_features=2148, out_features=1074, bias=True)
+  )
+  (output_layer): Linear(in_features=1074, out_features=1, bias=True)
+)
+After training: CNNModel(
+  (conv1): Conv1d(1, 16, kernel_size=(3,), stride=(2,))
+  (conv2): Conv1d(16, 32, kernel_size=(3,), stride=(2,))
+  (layers): ModuleList(
+    (0): Linear(in_features=17184, out_features=8592, bias=True)
+    (1): Linear(in_features=8592, out_features=4296, bias=True)
+    (2): Linear(in_features=4296, out_features=2148, bias=True)
+    (3): Linear(in_features=2148, out_features=1074, bias=True)
+  )
+  (output_layer): Linear(in_features=1074, out_features=1, bias=True)
+)
+After loading: CNNModel(
+  (conv1): Conv1d(1, 16, kernel_size=(3,), stride=(2,))
+  (conv2): Conv1d(16, 32, kernel_size=(3,), stride=(2,))
+  (layers): ModuleList(
+    (0): Linear(in_features=17184, out_features=8592, bias=True)
+    (1): Linear(in_features=8592, out_features=4296, bias=True)
+    (2): Linear(in_features=4296, out_features=2148, bias=True)
+    (3): Linear(in_features=2148, out_features=1074, bias=True)
+  )
+  (output_layer): Linear(in_features=1074, out_features=1, bias=True)
+)
+Before training: CNNModel(
+  (conv1): Conv1d(1, 16, kernel_size=(3,), stride=(2,))
+  (conv2): Conv1d(16, 32, kernel_size=(3,), stride=(2,))
+  (layers): ModuleList(
+    (0): Linear(in_features=17184, out_features=8592, bias=True)
+    (1): Linear(in_features=8592, out_features=4296, bias=True)
+    (2): Linear(in_features=4296, out_features=2148, bias=True)
+    (3): Linear(in_features=2148, out_features=1074, bias=True)
+  )
+  (output_layer): Linear(in_features=1074, out_features=1, bias=True)
+)
+After training: CNNModel(
+  (conv1): Conv1d(1, 16, kernel_size=(3,), stride=(2,))
+  (conv2): Conv1d(16, 32, kernel_size=(3,), stride=(2,))
+  (layers): ModuleList(
+    (0): Linear(in_features=17184, out_features=8592, bias=True)
+    (1): Linear(in_features=8592, out_features=4296, bias=True)
+    (2): Linear(in_features=4296, out_features=2148, bias=True)
+    (3): Linear(in_features=2148, out_features=1074, bias=True)
+  )
+  (output_layer): Linear(in_features=1074, out_features=1, bias=True)
+)
+After loading: CNNModel(
+  (conv1): Conv1d(1, 16, kernel_size=(3,), stride=(2,))
+  (conv2): Conv1d(16, 32, kernel_size=(3,), stride=(2,))
+  (layers): ModuleList(
+    (0): Linear(in_features=17184, out_features=8592, bias=True)
+    (1): Linear(in_features=8592, out_features=4296, bias=True)
+    (2): Linear(in_features=4296, out_features=2148, bias=True)
+    (3): Linear(in_features=2148, out_features=1074, bias=True)
+  )
+  (output_layer): Linear(in_features=1074, out_features=1, bias=True)
+)
+r2_score: 0.7036178442148062
+mse_score: 0.2907463396971043
+slurmstepd: error: acct_gather_profile/influxdb _send_data: curl_easy_perform failed to send data (discarded). Reason: Couldn't connect to server

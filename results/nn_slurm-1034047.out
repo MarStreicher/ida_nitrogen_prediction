@@ -1,0 +1,191 @@
+wandb: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
+wandb: Appending key for api.wandb.ai to your netrc file: /home/mstreicher/.netrc
+wandb: Currently logged in as: mstreicher (marleen-streicher) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: creating run
+wandb: Tracking run with wandb version 0.19.8
+wandb: Run data is saved locally in /work/mstreicher/ida_nitrogen_prediction/wandb/run-20250322_160913-n63fgh90
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run dl_fold_1_nn
+wandb: ⭐️ View project at https://wandb.ai/marleen-streicher/ida_nitrogen_prediction
+wandb: 🚀 View run at https://wandb.ai/marleen-streicher/ida_nitrogen_prediction/runs/n63fgh90
+wandb:                                                                                
+wandb: 
+wandb: Run history:
+wandb: early_stopping_epoch ▁
+wandb:             mse_test ▁
+wandb:            mse_train █▅▅▃▃▃▃▃▃▃▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁
+wandb:       mse_validation █▅▅▅▄▄▃▃▃▃▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁
+wandb:              r2_test ▁
+wandb:             r2_train ▁▄▄▆▆▆▆▆▆▆▇▇▇▇▇▇▇▇███████████
+wandb:        r2_validation ▁▄▄▄▅▅▅▅▅▅▇▇█████████████████
+wandb:            test_loss ▁
+wandb:           train_loss █▅▄▄▃▃▃▃▃▂▂▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁
+wandb:      validation_loss █▅▅▅▄▆▃▄▄▄▂▃▂▂▂▂▂▃▁▁▂▇▃▁▂▃▁▃▃
+wandb: 
+wandb: Run summary:
+wandb: early_stopping_epoch 29
+wandb:             mse_test 0.24014
+wandb:            mse_train 0.21755
+wandb:       mse_validation 0.23254
+wandb:              r2_test 0.68871
+wandb:             r2_train 0.75402
+wandb:        r2_validation 0.74319
+wandb:            test_loss 0.24014
+wandb:           train_loss 0.19928
+wandb:      validation_loss 0.29896
+wandb: 
+wandb: 🚀 View run dl_fold_1_nn at: https://wandb.ai/marleen-streicher/ida_nitrogen_prediction/runs/n63fgh90
+wandb: ⭐️ View project at: https://wandb.ai/marleen-streicher/ida_nitrogen_prediction
+wandb: Synced 8 W&B file(s), 1 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20250322_160913-n63fgh90/logs
+wandb: Appending key for api.wandb.ai to your netrc file: /home/mstreicher/.netrc
+wandb: Tracking run with wandb version 0.19.8
+wandb: Run data is saved locally in /work/mstreicher/ida_nitrogen_prediction/wandb/run-20250322_160924-81vihuf5
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run dl_fold_2_nn
+wandb: ⭐️ View project at https://wandb.ai/marleen-streicher/ida_nitrogen_prediction
+wandb: 🚀 View run at https://wandb.ai/marleen-streicher/ida_nitrogen_prediction/runs/81vihuf5
+wandb:                                                                                
+wandb: 
+wandb: Run history:
+wandb: early_stopping_epoch ▁
+wandb:             mse_test ▁
+wandb:            mse_train █▅▄▃▃▃▃▂▂▂▂▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:       mse_validation █▆▄▄▄▃▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:              r2_test ▁
+wandb:             r2_train ▁▅▅▆▆▆▆▇▇▇▇▇▇▇▇▇▇▇██████████████████████
+wandb:        r2_validation ▁▅▆▆▆▇▇▇▇▇▇▇▇▇▇▇▇█▇▇███████▇▇▇▇▇▇▇██████
+wandb:            test_loss ▁
+wandb:           train_loss █▅▄▄▄▃▃▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:      validation_loss █▅▅▆▄▃▂▂▃▃▃▅▂▂▂▂▂▂▂▂▁▃▂▁▂▁▂▃▃▁▁▁▁▂▂▂▂▁▂▁
+wandb: 
+wandb: Run summary:
+wandb: early_stopping_epoch 58
+wandb:             mse_test 0.26355
+wandb:            mse_train 0.16202
+wandb:       mse_validation 0.25271
+wandb:              r2_test 0.70861
+wandb:             r2_train 0.81726
+wandb:        r2_validation 0.74728
+wandb:            test_loss 0.26355
+wandb:           train_loss 0.15089
+wandb:      validation_loss 0.25549
+wandb: 
+wandb: 🚀 View run dl_fold_2_nn at: https://wandb.ai/marleen-streicher/ida_nitrogen_prediction/runs/81vihuf5
+wandb: ⭐️ View project at: https://wandb.ai/marleen-streicher/ida_nitrogen_prediction
+wandb: Synced 8 W&B file(s), 1 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20250322_160924-81vihuf5/logs
+wandb: Appending key for api.wandb.ai to your netrc file: /home/mstreicher/.netrc
+wandb: Tracking run with wandb version 0.19.8
+wandb: Run data is saved locally in /work/mstreicher/ida_nitrogen_prediction/wandb/run-20250322_160937-bqa1vh9p
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run dl_fold_3_nn
+wandb: ⭐️ View project at https://wandb.ai/marleen-streicher/ida_nitrogen_prediction
+wandb: 🚀 View run at https://wandb.ai/marleen-streicher/ida_nitrogen_prediction/runs/bqa1vh9p
+wandb:                                                                                
+wandb: 
+wandb: Run history:
+wandb: early_stopping_epoch ▁
+wandb:             mse_test ▁
+wandb:            mse_train █▅▅▄▄▃▃▃▃▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:       mse_validation █▆▆▅▅▅▄▄▄▃▃▃▂▂▂▂▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:              r2_test ▁
+wandb:             r2_train ▁▄▄▅▅▆▆▆▆▆▆▆▇▇▇▇▇▇▇▇▇▇▇▇▇███████████████
+wandb:        r2_validation ▁▃▃▃▃▄▄▄▄▆▆▆▆▆▆▆▆▆▇▇▇▇▇▇▇▇▇▇████████████
+wandb:            test_loss ▁
+wandb:           train_loss █▅▄▄▄▃▃▃▃▃▂▂▂▂▂▂▂▂▂▂▂▂▁▂▂▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:      validation_loss █▆▇▅▆▅▄▄▄▃▃▅▂▄▂▃▂▃▂▃▂▃▃▄▂▃▃▃▁▂▄▂▁▂▃▃▂▃▂▁
+wandb: 
+wandb: Run summary:
+wandb: early_stopping_epoch 48
+wandb:             mse_test 0.24611
+wandb:            mse_train 0.17588
+wandb:       mse_validation 0.21926
+wandb:              r2_test 0.69192
+wandb:             r2_train 0.81024
+wandb:        r2_validation 0.75492
+wandb:            test_loss 0.24611
+wandb:           train_loss 0.16449
+wandb:      validation_loss 0.22066
+wandb: 
+wandb: 🚀 View run dl_fold_3_nn at: https://wandb.ai/marleen-streicher/ida_nitrogen_prediction/runs/bqa1vh9p
+wandb: ⭐️ View project at: https://wandb.ai/marleen-streicher/ida_nitrogen_prediction
+wandb: Synced 8 W&B file(s), 1 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20250322_160937-bqa1vh9p/logs
+wandb: Appending key for api.wandb.ai to your netrc file: /home/mstreicher/.netrc
+wandb: Tracking run with wandb version 0.19.8
+wandb: Run data is saved locally in /work/mstreicher/ida_nitrogen_prediction/wandb/run-20250322_160948-73uq1igv
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run dl_fold_4_nn
+wandb: ⭐️ View project at https://wandb.ai/marleen-streicher/ida_nitrogen_prediction
+wandb: 🚀 View run at https://wandb.ai/marleen-streicher/ida_nitrogen_prediction/runs/73uq1igv
+wandb:                                                                                
+wandb: 
+wandb: Run history:
+wandb: early_stopping_epoch ▁
+wandb:             mse_test ▁
+wandb:            mse_train █▅▄▄▃▃▃▃▃▃▃▂▂▂▂▂▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:       mse_validation ██▅▅▅▄▄▄▃▃▃▂▂▂▂▂▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:              r2_test ▁
+wandb:             r2_train ▁▄▅▅▆▆▆▆▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇███████████████
+wandb:        r2_validation ▁▂▃▃▄▅▅▅▆▆▆▆▆▆▆▆▆▇▇▇▇▇▇▇▇▇▇▇████████████
+wandb:            test_loss ▁
+wandb:           train_loss █▅▄▄▄▃▃▃▃▃▂▂▂▂▂▂▂▂▂▂▂▂▂▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:      validation_loss ██▅▆▅▄▄▆▃▄▆▂▂▄▃▃▂▂▂▄▂▂▂▂▂▁▂▁▁▁▂▁▁▁▂▁▁▁▁▂
+wandb: 
+wandb: Run summary:
+wandb: early_stopping_epoch 44
+wandb:             mse_test 0.2529
+wandb:            mse_train 0.17751
+wandb:       mse_validation 0.2614
+wandb:              r2_test 0.62698
+wandb:             r2_train 0.80316
+wandb:        r2_validation 0.74132
+wandb:            test_loss 0.2529
+wandb:           train_loss 0.1662
+wandb:      validation_loss 0.27674
+wandb: 
+wandb: 🚀 View run dl_fold_4_nn at: https://wandb.ai/marleen-streicher/ida_nitrogen_prediction/runs/73uq1igv
+wandb: ⭐️ View project at: https://wandb.ai/marleen-streicher/ida_nitrogen_prediction
+wandb: Synced 8 W&B file(s), 1 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20250322_160948-73uq1igv/logs
+wandb: Appending key for api.wandb.ai to your netrc file: /home/mstreicher/.netrc
+wandb: Tracking run with wandb version 0.19.8
+wandb: Run data is saved locally in /work/mstreicher/ida_nitrogen_prediction/wandb/run-20250322_160959-4l5tg7nw
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run dl_fold_5_nn
+wandb: ⭐️ View project at https://wandb.ai/marleen-streicher/ida_nitrogen_prediction
+wandb: 🚀 View run at https://wandb.ai/marleen-streicher/ida_nitrogen_prediction/runs/4l5tg7nw
+wandb: uploading history steps 0-40, summary
+wandb:                                                                                
+wandb: 
+wandb: Run history:
+wandb: early_stopping_epoch ▁
+wandb:             mse_test ▁
+wandb:            mse_train █▅▄▄▄▄▃▃▂▂▂▂▂▂▂▂▁▁▁▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:       mse_validation █▇▆▅▅▅▄▃▃▃▃▂▂▂▂▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:              r2_test ▁
+wandb:             r2_train ▁▄▅▅▅▅▆▆▇▇▇▇▇▇▇▇███▇▇▇▇▇██████████████
+wandb:        r2_validation ▁▃▃▄▄▄▅▅▆▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇██████████████
+wandb:            test_loss ▁
+wandb:           train_loss █▅▄▄▃▃▃▃▃▂▂▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:      validation_loss █▇▆▅▆▇▄▃▃▃▃▂▂▂▃▃▂▂▂▂▄▄▂▂▁▃▆▄▁▁▁▁▂▁▂▂▃▁
+wandb: 
+wandb: Run summary:
+wandb: early_stopping_epoch 38
+wandb:             mse_test 0.22978
+wandb:            mse_train 0.19764
+wandb:       mse_validation 0.19553
+wandb:              r2_test 0.67256
+wandb:             r2_train 0.78316
+wandb:        r2_validation 0.77809
+wandb:            test_loss 0.22978
+wandb:           train_loss 0.18593
+wandb:      validation_loss 0.2023
+wandb: 
+wandb: 🚀 View run dl_fold_5_nn at: https://wandb.ai/marleen-streicher/ida_nitrogen_prediction/runs/4l5tg7nw
+wandb: ⭐️ View project at: https://wandb.ai/marleen-streicher/ida_nitrogen_prediction
+wandb: Synced 8 W&B file(s), 1 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20250322_160959-4l5tg7nw/logs
+r2_score: 0.6777559331485203
+mse_score: 0.24649505891970228

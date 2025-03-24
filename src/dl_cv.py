@@ -29,7 +29,7 @@ if __name__ == "__main__":
     for fold, (train_idx, val_idx) in enumerate(kfold.split(data.input_other)):
         # Reset model
         model = get_model_from_args()[1]
-        
+
         # wandb
         if config.use_wandb:
             wandb.login(key=os.environ["WB_KEY"], relogin=True)
@@ -94,12 +94,14 @@ if __name__ == "__main__":
             loss_fn = nn.MSELoss()
             
             # Train
+            print(f"Before training: {model}")
             model = train_with_early_stopping(
-                model, train_loader, validation_loader, optimizer, loss_fn, device, epochs = config.epochs
+                model, train_loader, validation_loader, optimizer, loss_fn, device, fold, epochs = config.epochs
             )
             
+            print(f"After training: {model}")
             # Test
-            r2_score, mse_score = test_best_model(model, test_loader, loss_fn, device)
+            r2_score, mse_score = test_best_model(model, test_loader, loss_fn, device, fold)
             r2_scores.append(r2_score)
             mse_scores.append(mse_score)
 
