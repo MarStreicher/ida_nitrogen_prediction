@@ -1,0 +1,40 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: Current File with Arguments",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": "${command:pickArgs}"
+        },
+        {
+            "name": "Python: Debug ml_sweep.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "/work/mstreicher/ida_nitrogen_prediction/src/ml_sweep.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--model", "PLSR",
+                "--n_components", "10",
+                "--use_wandb", "True",
+                ]
+        },
+        {
+            "name": "Python: Debug dl_sweep.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "/work/mstreicher/ida_nitrogen_prediction/src/dl_sweep.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--model", "NN",
+                "--layer_number", "3",
+                "--use_wandb", "True",
+                ]
+        }
+    ]
+}

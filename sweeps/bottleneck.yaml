@@ -1,0 +1,27 @@
+program: src/dl_sweep.py
+method: bayes
+name: bn_sweep_maize_sorghum_dropout
+entity: marleen-streicher
+project: ida_nitrogen_prediction
+run_cap: 200
+command:
+  - ${env}
+  - ${interpreter}
+  - ${program}
+  - ${args}
+  - --model=BN
+  - --use_wandb=true
+  - --normalised=true
+  - --drop_out=true
+  - "--domain_list"
+  - '["UNL_Maize", "UNL_Sorghum"]'
+metric:
+  name: r2_validation
+  goal: maximize
+parameters:
+  weight_decay:
+    values: [0.01, 0.0001, 0.001]
+  layer_number:
+    values: [2, 3, 4, 5, 10]
+  learning_rate:
+    values: [0.01, 0.0001, 0.001]

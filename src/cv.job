@@ -1,0 +1,41 @@
+#!/bin/zsh
+
+#SBATCH --partition=gpu              # Partition name
+#SBATCH --nodes=1                    # Number of nodes
+#SBATCH --ntasks=1                   # Number of tasks
+#SBATCH --cpus-per-task=4            # Number of CPU cores
+#SBATCH --mem=128G                     # Memory allocation
+#SBATCH --time=0-2:00:00             # Max runtime (hh:mm:ss)
+#SBATCH --output=slurm-%j.out        # Output log file (stdout + stderr)
+#SBATCH --mail-type=END              # Send an email when the job finishes
+#SBATCH --gpus=1                     # Request GPU
+
+# Load modules and activate Conda environment
+cd /work/mstreicher/ida_nitrogen_prediction
+module load lang/Anaconda3/2024.02-1
+eval "$(conda shell.zsh hook)"
+conda activate env_python_gpu
+
+# Set up the proxy for internet access on the compute node
+export http_proxy=http://proxy2.uni-potsdam.de:3128
+export https_proxy=http://proxy2.uni-potsdam.de:3128
+export ftp_proxy=http://proxy2.uni-potsdam.de:3128
+
+# Ensure WandB uses the proxy
+export WANDB_HTTP_PROXY=http://proxy2.uni-potsdam.de:3128
+export WANDB_HTTPS_PROXY=http://proxy2.uni-potsdam.de:3128
+export WANDB_MODE=online 
+
+# No need for login in wandb - wandb will automatically use .netrc
+
+#python src/dl_cv.py --model=NN --use_wandb=True --layer_number=4 --learning_rate=0.001 --weight_deacy=0.001 --trait_list="[\"N\"]" 
+#python src/dl_cv.py --model=BN --use_wandb=True --layer_number=5 --learning_rate=0.001 --weight_deacy=0.0001 --trait_list="[\"N\"]" 
+#python src/dl_cv.py --model=BN --use_wandb=True --layer_number=5 --learning_rate=0.001 --weight_deacy=0.0001 --drop_out=True --trait_list="[\"N\"]" 
+#python src/dl_cv.py --model=AEC --use_wandb=True --layer_number=3 --learning_rate=0.001 --weight_deacy=0.001
+#python src/dl_cv.py --model=CNN --use_wandb=True --layer_number=3 --learning_rate=0.01 --weight_deacy=0.001 --kernel_size=3 --padding=0 --stride=2 --out_channels_conv1=16 --out_channels_conv2=32 --trait_list="[\"N\"]" 
+#python src/dl_cv.py --model=CNN --use_wandb=True  --pooling=True --layer_number=4 --learning_rate=0.001 --weight_deacy=0.001 --kernel_size=3 --padding=0 --stride=2 --out_channels_conv1=16 --out_channels_conv2=32 --trait_list="[\"N\"]"
+
+
+## EXTRA
+#python src/dl_cv.py --model=CNN --use_wandb=True  --pooling=False --layer_number=4 --learning_rate=0.001 --weight_deacy=0.001 --kernel_size=3 --padding=0 --stride=2 --out_channels_conv1=16 --out_channels_conv2=32 --trait_list="[\"N\"]" --domain_list="[\"UNL_Maize\", \"UNL_Sorghum\"]"
+python src/dl_cv.py --model=BN --use_wandb=True --layer_number=2 --learning_rate=0.001 --weight_deacy=0.001 --drop_out=True --trait_list="[\"N\"]" --domain_list="[\"UNL_Maize\", \"UNL_Sorghum\"]"

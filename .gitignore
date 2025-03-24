@@ -172,3 +172,13 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Custom
+data
+wandb
+slurm*
+.conda
+
+
+# VSC
+settings.json
